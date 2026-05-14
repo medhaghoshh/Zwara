@@ -12,7 +12,7 @@ function Home() {
   return (
     <div className="home-container">
     <div className="box">
-      <h1 className="app-name">Zwara🎵</h1>
+      <h1 className="app-name">ZWARA🎵</h1>
       <p className="tagline">The new age of music.</p>
       <p className="intro-text">
         Explore your favourite tracks and groove onto seamless listening experiences anytime, anywhere.
