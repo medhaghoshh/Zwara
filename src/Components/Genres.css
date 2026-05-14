@@ -1,0 +1,66 @@
+.genres-page {
+  min-height: 100vh;
+  width: 100vw;
+  padding-top: 120px; /* space for navbar */
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   background: url(../assets/bg1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.box{
+    background: rgba(23, 23, 24, 0.75); /* semi-transparent background */
+    padding: 40px;
+    border-radius: 15px;
+    width:100vw;
+    margin-top: 30px;
+}
+.genres-title {
+  font-size: 2.8rem;
+  color: #ff6b81;
+  margin-bottom: 50px;
+}
+
+.genres-buttons {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap;   /* responsive */
+  justify-content: center;
+}
+
+.genres-buttons button {
+  padding: 15px 35px;
+  border: none;
+  border-radius: 25px;
+  
+  background: #2c0336;
+  color: white;
+  font-size: 1.1rem;
+
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease-in-out;
+}
+
+.genres-buttons button:hover {
+  background-color: #ff6b81;
+  transform: scale(1.05);
+  box-shadow: 0px 0px 12px rgba(255, 107, 129, 0.6);
+}
+/* Responsive adjustments for Genres */
+@media (max-width: 768px) {
+  .genres-page { padding-top: 100px; }
+  .box { padding: 20px; border-radius: 12px; width: 100%; max-width: 720px; }
+  .genres-title { font-size: 1.6rem; margin-bottom: 20px; }
+  .genres-buttons { gap: 12px; }
+  .genres-buttons button { padding: 12px 22px; font-size: 1rem; }
+}
+
+@media (max-width: 420px) {
+  .genres-buttons { flex-direction: column; gap: 10px; }
+  .genres-buttons button { width: 100%; }
+}

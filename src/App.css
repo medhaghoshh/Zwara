@@ -1,0 +1,8 @@
+h3{
+  margin-left:1000px;
+}
+
+/* Make large left margin harmless on smaller screens */
+@media (max-width: 768px) {
+  h3{ margin-left:0; font-size:1.1rem; }
+}

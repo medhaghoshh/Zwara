@@ -1,0 +1,142 @@
+/* ---------- GLOBAL ---------- */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ---------- HOME CONTAINER ---------- */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+  width: 100vw;
+  padding: 20px;
+
+  text-align: center;
+  color: #ff6b81;
+
+  background: url(../assets/bg1.jpg) center/cover no-repeat;
+}
+
+/* ---------- CONTENT BOX ---------- */
+/* Note: use max-width, not 100vw (avoids overflow on mobile) */
+.box {
+  background: rgba(17, 1, 20, 0.75);
+  padding: 40px 24px;
+  border-radius: 15px;
+
+  width: 100vw;  /* desktop width cap */
+  height: auto;       /* let content size it */
+
+}
+
+
+/* ---------- TEXT ---------- */
+.tagline {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+/* IMPORTANT: no conflicting margin-left here — use centered flow */
+.intro-text {
+  font-size: 1.5rem;
+  margin: 0 auto 30px;   /* centered and spaced below */
+  max-width: 600px;
+  color: #fff;
+  line-height: 1.35;
+  display: block;        /* ensure it's a block-level box */
+  visibility: visible;   /* ensure not hidden */
+  opacity: 1;
+}
+
+/* ---------- BUTTON ---------- */
+.start-btn {
+  padding: 20px 50px;
+  font-size: 1rem;
+  background-color: #e71376;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.start-btn:hover {
+  background-color: #8f0433;
+  transform: scale(1.05);
+}
+
+/* ---------- MOBILE RESPONSIVE (primary) ---------- */
+@media (max-width: 768px) {
+  .box {
+    max-width: 560px;
+    padding: 32px 20px;
+  }
+
+  .intro-text {
+    font-size: 1.2rem;
+    max-width: 520px;
+    margin-bottom: 22px;
+  }
+
+  .start-btn {
+    padding: 16px 36px;
+  }
+}
+
+/* ---------- SMALL DEVICES (including 400px) ---------- */
+@media (max-width: 400px) {
+  .box {
+    padding: 22px 14px;
+    border-radius: 12px;
+    max-width: 360px;   /* a comfortable mobile width */
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+    max-width: 320px;
+    margin: 0 auto 16px;  /* centered on tiny viewports */
+    /* these ensure it cannot be pushed off-screen */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0;
+    line-height: 1.25;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    word-wrap: break-word; /* wrap long words */
+  }
+
+  .start-btn {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+}
+
+/* Additional small-breakpoint tweaks: keep rest of file untouched */
+@media (max-width: 360px) {
+  .home-container { padding: 14px; }
+  .box { padding: 16px; border-radius: 12px; }
+  .app-name { font-size: 1.25rem; }
+  .intro-text { font-size: 0.95rem; max-width: 300px; }
+  .start-btn { padding: 10px 14px; font-size: 0.92rem; }
+}

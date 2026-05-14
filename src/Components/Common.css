@@ -1,0 +1,211 @@
+.app-container{
+  padding-left:20px;
+  width:100vw;
+  height:100%;
+}
+body{
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url(../assets/bg1.jpg);
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;}
+
+.player-wrapper{
+  display:flex;
+  align-items:flex-start;
+  margin-left: 20px;
+}
+
+.playlist-section{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.playlist-title{
+  font-size:18px;
+  font-weight:bold;
+  color:#ff6b81;
+  text-align:center;
+  margin-top:60px;
+}
+
+.playlist{
+  width:300px;
+  background:rgb(15, 1, 19,0.8) !important;   /* ✅ CHANGED COLOR */
+  border-radius:12px;
+  height:63vh;
+  border:1px solid rgba(255,107,129,0.25);
+  box-shadow:0 0 25px rgba(255,107,129,0.08);
+}
+
+.song{
+  padding:8px;
+  border-radius:6px;
+  cursor:pointer;
+  color:white;
+}
+
+.song:hover{
+  background:#242324;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 25px rgba(255,107,129,0.3);
+  transform: translateY(-3px) scale(1);
+}
+
+.song.active{
+  background:#ff6b81;
+  color:white;
+}
+
+.player-container{
+  width:420px;
+  padding:15px;
+  margin-left:200px;
+  margin-top:80px;
+  text-align:center;
+
+  background:rgb(15, 1, 19,0.8) !important;   /* ✅ CHANGED COLOR */
+  border-radius:16px;
+
+  border:1px solid rgba(255,107,129,0.25);
+  box-shadow:0 0 30px rgba(255,107,129,0.12);
+}
+.player-container:hover{
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 45px rgba(255,107,129,0.6);
+  transform: translateY(-3px) scale(1);
+}
+
+.cover-art{
+  width:70%;
+  border-radius:12px;
+}
+
+.song-title{
+  margin-top:12px;
+  margin-bottom:8px;
+  font-size:18px;
+  color:white;
+}
+
+.progress-container{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin:10px 0;
+  color:#ffcada;
+}
+
+.progress-container input{
+  flex:1;
+}
+
+.controls-row{
+  position:relative;
+  width:100%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  margin-top:10px;
+}
+
+.controls{
+  display:flex;
+  gap:20px;
+  font-size:22px;
+}
+
+.controls svg{
+  cursor:pointer;
+  color:white;
+  transition:0.2s ease;
+}
+
+.controls svg:hover{
+  color:#ff6b81;
+}
+
+.volume-btn{
+  position:absolute;
+  right:10px;
+  cursor:pointer;
+  font-size:20px;
+  color:white;
+}
+
+.volume-icon{
+  position:relative;
+}
+
+.volume-slider{
+  position:absolute;
+  right:-15px;
+  bottom:30px;
+  width:90px;
+  transform:rotate(-90deg);
+} 
+/* Playlist drawer and mobile layout adjustments */
+.playlist-toggle{ display:none; }
+
+@media (max-width: 900px) {
+  /* hamburger button */
+  .playlist-toggle{
+    display:flex;
+    position:fixed;
+    top:14px;
+    left:14px;
+    z-index:1400;
+    width:44px;
+    height:44px;
+    border-radius:8px;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,0.04);
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  /* slide-out playlist */
+  .playlist-section{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    width:min(82%,360px);
+    max-width:82%;
+    transform:translateX(-100%);
+    transition:transform .28s ease;
+    z-index:1300;
+    padding:78px 14px 18px;
+    background:rgba(15, 1, 19,0.98);
+    overflow-y:auto;
+    box-shadow:8px 0 30px rgba(0,0,0,0.6);
+  }
+
+  .playlist-section .playlist-title{ position:sticky; top:18px; background:transparent; padding-bottom:8px; z-index:1310; }
+
+  .playlist-section.open{ transform:translateX(0); }
+
+  .playlist{ width:100%; }
+
+  /* player centered and above the drawer */
+  .player-wrapper{ margin-left:0; display:block; }
+  /* add some right/left margin so player doesn't touch screen edges */
+  .player-container{ width:calc(100% - 24px); max-width:720px; margin:90px 12px 24px; padding:14px; box-sizing:border-box; }
+  .cover-art{ display:block; margin:22px auto; width:68%; max-width:320px; }
+}
+
+@media (max-width: 420px) {
+  .playlist-toggle{ top:10px; left:10px; width:40px; height:40px; }
+  /* tighter margins for very small screens */
+  .player-container{ width:calc(100% - 20px); margin:180px 10px 12px; padding:12px; box-sizing:border-box; }
+  .cover-art{ width:72%; }
+  .playlist{ height:auto; }
+} 
